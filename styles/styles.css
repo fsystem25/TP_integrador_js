@@ -2,8 +2,9 @@
     /*Para ocultar la barra de desplazamiento*/
     display: none; 
 }
-
-
+html{
+    scroll-padding-top: 9vh; /* height of sticky header */
+}
 .carousel-item > img{
     filter: brightness(50%);
     height: auto;
