@@ -77,7 +77,7 @@
         </div>
         
     </section>
-
+      
     <!-- Form -->
     <form class="container-fluid my-3" id="formTickets">
 
@@ -110,12 +110,54 @@
           <div class="col col-lg-3"></div>
           <div class="col-10 col-lg-6">
             <div class="form-group mt-3">
-              <textarea class="form-control lead" id="form_oradores" rows="3" placeholder="Sobre qué quieres hablar?"></textarea>
-              <small id="emailHelp" class="form-text text-muted">Recuerda incluir un título sobre tu charla</small>
+                <input type="text" class="form-control" placeholder="Email">
             </div>
-            <button type="button" class="btn btn-lg btn-block small" style="background-color: #96C93E; color:white">Enviar</button>
           </div>
           <div class="col col-lg-3"></div>
+        </div>
+
+        <!-- Third row-->
+        <div class="row">
+            <div class="col col-lg-3"></div>
+            <div class="col-5 col-lg-3">
+                <p>Cantidad</p>
+                <input type="text" class="form-control" placeholder="Cantidad">
+            </div>
+            <div class="col-5 col-lg-3">
+                <p>Categoria</p>                
+                <div class="form-group">
+                    <select id="myDropdown" class="form-control">
+                      <option value="opcionDef" disabled class="text-muted">Elegir Categoria</option>
+                      <option value="opcion1">Junior</option>
+                      <option value="opcion2">Estudiante</option>
+                      <option value="opcion3">Trainee</option>
+                      <option value="opcion4">Sin categoria</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="col col-lg-3"></div>
+        </div>
+
+        <!-- Fourth row-->
+        <div class="row">
+            <div class="col col-lg-3"></div>
+            <div class="col-10 col-lg-6">
+                <p class="p-3 rounded" style="background-color: aquamarine;">Total a pagar:</p>
+            </div>
+            <div class="col col-lg-3"></div>
+          </div>
+
+        <!-- Fifth row-->
+        <div class="row">
+            <div class="col col-lg-3"></div>
+            <div class="col-5 col-lg-3">
+              <button type="button" class="btn btn-lg btn-block small" style="background-color: #96C93E; color:white">Borrar</button>
+            </div>
+            <div class="col-5 col-lg-3">
+              <button type="button" class="btn btn-lg btn-block small" style="background-color: #96C93E; color:white">Resumen</button>
+            </div>
+            <div class="col col-lg-3"></div>
         </div>
     
     </form>
