@@ -44,17 +44,83 @@
     </nav>
 
     <!-- Categorias -->
-    <section class="d-flex justify-content-center mt-5" id="categorias">
+    <section class="d-flex justify-content-center mt-5 text-center" id="categorias">
 
-        <div class="card border-dark mb-3" style="max-width: 18rem;" id="">
+        <div class="card border-primary mb-3" style="max-width: 18rem;" id="Estudiantes">
             <div class="card-body text-dark">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Estudiantes</h5>
+            <p class="card-text">Tienen un descuento<br>
+                <strong>80%<br></strong>
+                <span class="lead small text-muted">*presentar documentacion</span>
+            </p>
             </div>
         </div>
+        
+        <div class="card border-info mb-3" style="max-width: 18rem;" id="Trainee">
+            <div class="card-body text-dark">
+            <h5 class="card-title">Trainee</h5>
+            <p class="card-text">Tienen un descuento<br>
+                <strong>50%<br></strong>
+                <span class="lead small text-muted">*presentar documentacion</span>
+            </p>
+            </div>
+        </div>
+
+        <div class="card border-warning mb-3" style="max-width: 18rem;" id="Junior">
+            <div class="card-body text-dark">
+            <h5 class="card-title">Junior</h5>
+            <p class="card-text">Tienen un descuento<br>
+                <strong>15%<br></strong>
+                <span class="lead small text-muted">*presentar documentacion</span>
+            </p>
+            </div>
+        </div>
+        
     </section>
 
-    <footer class="mt-5 fixed-bottom">
+    <!-- Form -->
+    <form class="container-fluid my-3" id="formTickets">
+
+        <!-- Header of form -->
+        <div class="row">
+          <div class="col col-lg-2"></div>
+          <div class="col-10 col-lg-8">
+            <span class="text-center">
+              <p>VENTA</p>
+              <h2 class="mt-n3">VALOR DE TICKET $200</h2>
+            </span>
+          </div>
+          <div class="col col-lg-2"></div>
+        </div> 
+
+        <!--First Row-->
+        <div class="row">
+          <div class="col col-lg-3"></div>
+          <div class="col-5 col-lg-3">
+            <input type="text" class="form-control" placeholder="Nombre">
+          </div>
+          <div class="col-5 col-lg-3">
+            <input type="text" class="form-control" placeholder="Apellido">
+          </div>
+          <div class="col col-lg-3"></div>
+        </div>
+
+        <!-- Second row-->
+        <div class="row">
+          <div class="col col-lg-3"></div>
+          <div class="col-10 col-lg-6">
+            <div class="form-group mt-3">
+              <textarea class="form-control lead" id="form_oradores" rows="3" placeholder="Sobre qué quieres hablar?"></textarea>
+              <small id="emailHelp" class="form-text text-muted">Recuerda incluir un título sobre tu charla</small>
+            </div>
+            <button type="button" class="btn btn-lg btn-block small" style="background-color: #96C93E; color:white">Enviar</button>
+          </div>
+          <div class="col col-lg-3"></div>
+        </div>
+    
+    </form>
+
+    <footer class="mt-2">
         <ul class="nav justify-content-center align-items-center py-3 text-center" id="footer_ul">
             <li class="nav-item">
                 <a class="nav-link active" href="">Preguntas frecuentes</a>
