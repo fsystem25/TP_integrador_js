@@ -46,8 +46,15 @@ function actualizarDatos(event) {
     let elemento = event.target;
     let newCategoria = document.querySelector("#myDropdown.form-control option:checked");
     
+    //Cargamos los nuevos datos
     datos.set(`${elemento.name}`,`${elemento.value}`);
-    datosValidos.set(elemento.name,validar(elemento));
+
+    //Validamos dichos datos. Primero, nos fijamos que el dato nuevo a validar no sea una nueva categoria
+    if(datosValidos.has(`${elemento.name}`)){
+        datosValidos.set(elemento.name,validar(elemento));
+    }
+
+    //Cargamos la nueva categoria
     datos.set("Categoria",newCategoria.text);
 
     //Mostramos por consola
