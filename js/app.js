@@ -157,7 +157,6 @@ function calcularResumen(){
     descuento = categorias.get(`${categActual.text}`);
     
     cantidadTickets = datos.get("Cantidad");
-    console.log(cantidadTickets)
     resumen = precioTicket*cantidadTickets*(1.0-descuento/100.0);
 
     texto = document.querySelector("#totalAPagar");
