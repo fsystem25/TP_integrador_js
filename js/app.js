@@ -1,7 +1,11 @@
-var inputs = document.querySelectorAll("input.form-control");
-var categoria = document.querySelector("#myDropdown.form-control option:checked") //pseudoclase :checked se utiliza para tomar la opción que está seleccionada
-var dropDown = document.querySelector("#myDropdown.form-control");
 const maxTickets = 10; //Numero maximo de tickets admitidos 
+const precioTicket = 200; 
+var inputs = document.querySelectorAll("input.form-control");
+var dropDown = document.querySelector("#myDropdown.form-control");
+var categoria = document.querySelector("#myDropdown.form-control option:checked"); //pseudoclase :checked se utiliza para tomar la opción que está seleccionada
+var resumen = 0;
+const btnResumen = document.querySelector("#Resumen");
+const btnBorrar = document.querySelector("#Borrar");
 
 //Creamos tres maps. Uno para poder hacer las validaciones, y otro para guardar los datos.
 var datos =  new Map();
@@ -63,6 +67,33 @@ function actualizarDatos(event) {
             "\n\n Validacion de datos",datosValidos
     );
 
+    //Verificamos si hay o no datos cargados. En caso de haber, habilitamos el boton "Borrar"
+    valores = Array.from(datos.values()).slice(0,-1);
+    if(valores.some((elemento) => elemento != "")){
+        //Habilitamos el boton "Borrar" y le agregamos un listener
+        btnBorrar.classList.remove("disabled");
+        btnBorrar.addEventListener("click",plainInputs);
+    }
+    else{
+        //Desabilitamos el boton, y removemos el listener
+        btnBorrar.classList.add("disabled");
+        btnBorrar.removeEventListener("click",plainInputs);
+    }
+
+    //Verificamos si TODOS los datos ingresados son validos. De ser asi, habilitamos el boton "Resumen"
+    validaciones = Array.from(datosValidos.values());
+    if(validaciones.every((elemento) => elemento == true)){
+        //Habilitamos el boton, y le añadimos un listener
+        btnResumen.classList.remove("disabled");
+        btnResumen.addEventListener("click",calcularResumen);
+    }
+    else{
+        //Deshabilitamos el boton y removemos el listener
+        btnResumen.classList.add("disabled");
+        btnResumen.removeEventListener("click",calcularResumen);
+    }
+
+
 }
 
 function validar(elemento){
@@ -106,4 +137,29 @@ function validar(elemento){
     return valido;
 }
 
-  
+function plainInputs(){
+    //Le sacamos el estilo a los inputs, y deshabilitamos los botones
+    for(let i=0; i<inputs.length; i++){
+        inputs[i].classList.remove("is-valid");
+        inputs[i].classList.remove("is-invalid");
+        inputs[i].value = ""
+    }
+    btnBorrar.classList.add("disabled");
+    btnResumen.classList.add("disabled");
+    texto = document.querySelector("#totalAPagar");
+    texto.innerHTML = "Total a pagar:";
+    dropDown.value = "opcion1";
+    resumen = 0;
+}
+
+function calcularResumen(){
+    categActual = document.querySelector("#myDropdown.form-control option:checked");
+    descuento = categorias.get(`${categActual.text}`);
+    
+    cantidadTickets = datos.get("Cantidad");
+    console.log(cantidadTickets)
+    resumen = precioTicket*cantidadTickets*(1.0-descuento/100.0);
+
+    texto = document.querySelector("#totalAPagar");
+    texto.innerHTML = 'Total a pagar: $'+resumen.toFixed(2);
+}
